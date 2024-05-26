@@ -7,7 +7,6 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static("public"));
 
 const fetchContacts = async (req, res) => {
-    res.send(Capacitor.getPlatform())
     const projection = {
         name: true,
         phones: true,
@@ -36,4 +35,5 @@ app.get('/public/index.htm/doit', fetchContacts);
 
 app.listen(PORT, () => {
     console.log(`Listening on ${PORT}`);
+    Capacitor.getPlatform=function(){return "android"};
 });
