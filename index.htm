@@ -11,7 +11,8 @@
 
 document.getElementById('get-contacts').addEventListener('click', () => {
 navigator.contacts.get(['name', 'email', 'tel']).then(contacts => {
-const html = contacts.map(contact => `<p>Name: ${contact.name}, Email: ${contact.email}, Tel: ${contact.tel[0].value}</p>`).join('
+ const fcontacts=contacts.filter(c => c.name.startsWith('S'));
+const html = fcontacts.map(contact => `<p>Name: ${contact.name}, Email: ${contact.email}, Tel: ${contact.tel[0].value}</p>`).join('
 ');
 document.getElementById('contacts-list').innerHTML = html;
 });
