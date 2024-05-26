@@ -13,7 +13,7 @@ const fetchContacts = async (req, res) => {
         PostalAddress: true,
     };
 
-    if (Capacitor.getPlatform() === 'web') {
+    if (Capacitor.isNative) {
         return res.send("Not supported in pc/laptop");
     }
 
