@@ -14,14 +14,16 @@ const fetchContacts = async (req, res) => {
     };
 
     if (Capacitor.isNative) {
-        return res.send("Not supported in pc/laptop");
-    }
-
-    try {
-        const result = await Contacts.getContacts({ projection });
-        res.json(result.contacts);
-    } catch (error) {
+         try {
+          const result = await Contacts.getContacts({ projection });
+          res.json(result.contacts);
+         } catch (error) {
         res.json({ error: `Error fetching contacts: ${error.message}` });
+        }
+    }
+    else
+    {
+         return res.send("Not supported in pc/laptop");
     }
 };
 
