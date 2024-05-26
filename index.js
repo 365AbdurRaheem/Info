@@ -26,7 +26,7 @@ const fetchContacts = async (req, res) => {
 };
 
 app.get('/', (req, res) => {
-    res.redirect("index.htm");
+    res.redirect("./index.htm");
 });
 
 app.get('/index.htm/doit', fetchContacts);
