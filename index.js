@@ -1,5 +1,5 @@
-const { Contacts } = require("@capacitor-community/contacts");
-const { Capacitor } = require('@capacitor/core');
+import { Contacts } from "@capacitor-community/contacts";
+import { Capacitor } from '@capacitor/core';
 
 const fetchContacts = async () => {
     const projection = {
@@ -9,18 +9,24 @@ const fetchContacts = async () => {
     };
 
     if (Capacitor.getPlatform() === 'web') {
-        console.error("Contacts API is not implemented on the web.");
+        displayContacts("Contacts API is not implemented on the web.");
         return;
     }
 
     try {
         const result = await Contacts.getContacts({ projection });
-        console.log(result);
+        displayContacts(JSON.stringify(result.contacts, null, 2));
     } catch (error) {
-        console.error("Error fetching contacts:", error);
+        displayContacts(`Error fetching contacts: ${error}`);
     }
 };
 
+const displayContacts = (content) => {
+    const contactsParagraph = document.getElementById('contactsParagraph');
+    contactsParagraph.textContent = content;
+};
+
+// Add an event listener to the button
 document.addEventListener('DOMContentLoaded', () => {
     const button = document.getElementById('fetchContactsButton');
     button.addEventListener('click', fetchContacts);
