@@ -10,24 +10,7 @@
 <script>
 
 document.getElementById('get-contacts').addEventListener('click', () => {
-  navigator.contacts.requestPermission()
-  .then((permission) => {
-    if (permission === 'granted') {
-      navigator.contacts.getAll()
-      .then((contacts) => {
-        const contactList = document.getElementById('contacts-list');
-        contacts.forEach((contact) => {
-          const contactHTML = `
-          <h2>${contact.name}</h2>
-          <p>${contact.phoneNumbers[0].value}</p>
-          `;
-          contactList.innerHTML += contactHTML;
-        });
-      });
-    } else {
-      console.log('Permission denied');
-    }
+  navigator.contacts.select().then(c => console.log(c))
   });
-});
 </script>
 </html>
