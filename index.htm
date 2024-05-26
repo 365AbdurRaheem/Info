@@ -6,11 +6,11 @@
     <title>Fetch Contacts</title>
 </head>
 <body>
-    <button id="fetchContactsButton">Fetch Contacts</button>
-    <div id="contactsContainer">
-        <p id="contactsParagraph"></p>
-    </div>
-
-    <script type="module" src="index.js"></script>
+    <button id="fetchContactsButton" onclick="doIt()" >Fetch Contacts</button>
+    <script>
+        function doIt(){
+            window.location.href += 'doit';
+        }
+    </script>
 </body>
 </html>
