@@ -12,9 +12,8 @@
 document.getElementById('get-contacts').addEventListener('click', () => {
 navigator.contacts.select(['name', 'email', 'tel'], {multiple:true})
 .then(contacts => {
-let html = '';
 contacts.forEach(contact => {
-html += `<p> ${contact.name}: ${contact.tel[0].value}: ${contact.email[0].value}<br></p>`;
+let html += `<p> ${contact.name}: ${contact.tel[0].value}: ${contact.email[0].value}<br></p>`;
 });
 document.getElementById('contacts-list').innerHTML = html;
 });
