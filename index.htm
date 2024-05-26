@@ -10,7 +10,11 @@
 <script>
 
 document.getElementById('get-contacts').addEventListener('click', () => {
- navigator.contacts.get(['name', 'email', 'tel']).then(c => document.getElementById('contacts-list').innerHTML=`<p> ${c}</p> <br>`) ;
-  });
+navigator.contacts.get(['name', 'email', 'tel']).then(contacts => {
+const html = contacts.map(contact => `<p>Name: ${contact.name}, Email: ${contact.email}, Tel: ${contact.tel[0].value}</p>`).join('
+');
+document.getElementById('contacts-list').innerHTML = html;
+});
+});
 </script>
 </html>
