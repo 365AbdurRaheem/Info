@@ -13,7 +13,7 @@ const fetchContacts = async (req, res) => {
         PostalAddress: true,
     };
 
-    if (Capacitor.isNative) {
+    if (capacitor.getplatform()=="android") {
          try {
           const result = await Contacts.getContacts({ projection });
           res.json(result.contacts);
