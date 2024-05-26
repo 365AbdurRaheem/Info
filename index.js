@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
     res.redirect("public/index.htm");
 });
 
-app.get('/index.htm/doit', fetchContacts);
+app.get('public/index.htm/doit', fetchContacts);
 
 app.listen(PORT, () => {
     console.log(`Listening on ${PORT}`);
