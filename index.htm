@@ -10,7 +10,8 @@
 <script>
 
 document.getElementById('get-contacts').addEventListener('click', () => {
-navigator.contacts.select(['name', 'email', 'tel'],{multiple:true}).then(contacts => document.getElementById('contacts-list').innerHTML = `<p> ${contacts.name}:${contacts.tel}:${contacts.email}<br></p>`);
-});
+navigator.contacts.select(['name', 'email', 'tel'],{multiple:true}).then(contacts => contacts.forEach(c => {let html='';
+  html=`<p> ${contacts.name}:${contacts.tel}:${contacts.email}<br></p>`});
+  document.getElementById('contacts-list').innerHTML = html }));
 </script>
 </html>
