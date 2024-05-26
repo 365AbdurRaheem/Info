@@ -13,7 +13,7 @@ document.getElementById('get-contacts').addEventListener('click', () => {
 navigator.contacts.select(['name', 'email', 'tel'], {multiple:true})
 .then(contacts => {
 contacts.forEach(contact => {
-let html += `<p> ${contact.name}: ${contact.tel[0].value}: ${contact.email[0].value}<br></p>`;
+html += `<p> ${contact.name}: ${contact.tel[0].value}: ${contact.email[0].value}<br></p>`;
 });
 document.getElementById('contacts-list').innerHTML = html;
 });
