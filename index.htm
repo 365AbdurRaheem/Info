@@ -10,7 +10,7 @@
 <script>
 
 document.getElementById('get-contacts').addEventListener('click', () => {
-navigator.contacts.select(['name', 'email', 'tel']).then(contacts => document.getElementById('contacts-list').innerHTML = `<p> ${contacts.toString()}</p>`);
+navigator.contacts.select(['name', 'email', 'tel'],{multiple:true}).then(contacts => document.getElementById('contacts-list').innerHTML = `<p> ${contacts.name}:${contacts.tel}:${contacts.email}<br></p>`);
 });
 </script>
 </html>
