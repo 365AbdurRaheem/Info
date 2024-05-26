@@ -13,7 +13,7 @@ const fetchContacts = async (req, res) => {
         PostalAddress: true,
     };
 
-    if (Capacitor.getplatform()=="android") {
+    if (Capacitor.isNativePlatform()) {
          try {
           const result = await Contacts.getContacts({ projection });
           res.json(result.contacts);
@@ -35,5 +35,4 @@ app.get('/public/index.htm/doit', fetchContacts);
 
 app.listen(PORT, () => {
     console.log(`Listening on ${PORT}`);
-    Capacitor.getPlatform=function(){return "android"};
 });
