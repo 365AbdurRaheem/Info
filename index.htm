@@ -1,21 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Contacts</title>
 </head>
 <body>
-  <button id="get-contacts">Get Contacts</button>
-<div id="contacts-list"></div>
-</body>
-<script>
+    <button id="fetchContactsButton">Fetch Contacts</button>
 
-document.getElementById('get-contacts').addEventListener('click', () => {
-navigator.contacts.select(['name', 'email', 'tel'], {multiple:true})
-.then(contacts => {
-contacts.forEach(contact => {
-document.getElementById('contacts-list').innerHTML += `<p> ${contact.name}: ${contact.tel[0].value}: ${contact.email[0].value}<br></p>`;
-});
-});
-});
-</script>
+    <scriptsrc="index.js"></script>
+</body>
 </html>
