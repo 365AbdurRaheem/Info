@@ -13,18 +13,18 @@ const fetchContacts = async (req, res) => {
         PostalAddress: true,
     };
 
-    if (Capacitor.isNativePlatform()) {
+    //if (Capacitor.isNativePlatform()) {
          try {
           const result = await Contacts.getContacts({ projection });
           res.json(result.contacts);
          } catch (error) {
         res.json({ error: `Error fetching contacts: ${error.message}` });
         }
-    }
-    else
-    {
-         return res.send("Not supported in pc/laptop");
-    }
+  //  }
+   // else
+  //  {
+     //    return res.send("Not supported in pc/laptop");
+  //  }
 };
 
 app.get('/', (req, res) => {
